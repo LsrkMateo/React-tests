@@ -18,11 +18,11 @@ const Characters = ({ characters = [] }) => {
   return (
     <div className="row">
 
-      // Mapping characters 
+      {/* Mapping characters */}
       {characters.map((item, index) => (
         <div key={index} className="col mb-4">
           
-          // Conditional Styles 
+          {/* Conditional Styles  */}
           <div
             className="card"
             style={
