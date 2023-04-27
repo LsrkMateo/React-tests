@@ -1,6 +1,12 @@
 import React from "react";
+import { useState } from "react";
+function Search(props) {
+  const [busqueda, setBusqueda] = useState("");
 
-function Search() {
+  const handleChange = (e) => {
+    props.onMiEvento(e.target.value)
+  };
+
   return (
     <>
       <nav className="navbar bg-body-tertiary barra-busqueda">
@@ -11,6 +17,7 @@ function Search() {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onChange={handleChange}
             />
             <button className="btn btn-outline-success w-25" type="submit">
               Search

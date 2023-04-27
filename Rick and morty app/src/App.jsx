@@ -28,12 +28,27 @@ function App() {
     fetchChararcter(initialURL);
   }, []);
 
+  const handleMiEvento = (fetchChararcter) => {
+    console.log("se recibio la informacion del hijo: ", fetchChararcter);
+    let resultados = charactes.filter((elemento) => {
+      if (
+        elemento.name
+          .toString()
+          .toLowerCase()
+          .includes(fetchChararcter.toLowerCase())
+      ) {
+        return elemento;
+      }
+    });
+    setCharactes(resultados)
+  };
+
   return (
     <>
       <Navbar titulo="Rick and morty API" />
 
       <div className="container mb-5">
-        <Search />
+        <Search onMiEvento={handleMiEvento} />
         <Characters characters={charactes} />
         <Pagination
           prev={info.prev}
