@@ -4,44 +4,49 @@ import Navbar from "./components/Navbar";
 import Characters from "./components/Characters";
 import Pagination from "./components/Pagination";
 import Search from "./components/Search";
+
 function App() {
-  const [charactes, setCharactes] = useState([]);
+  const [allCharacters, setAllCharacters] = useState([]);
+  const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [info, setInfo] = useState({});
   const initialURL = "https://rickandmortyapi.com/api/character";
 
-  const fetchChararcter = (url) => {
+  const fetchCharacters = (url) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setCharactes(data.results);
+        setAllCharacters(data.results);
+        setFilteredCharacters(data.results); // Inicialmente, muestra todos los personajes
         setInfo(data.info);
       })
       .catch((err) => console.log(err));
   };
-  const onPrevious = () => {
-    fetchChararcter(info.prev);
-  };
-  const onNext = () => {
-    fetchChararcter(info.next);
-  };
-  useEffect(() => {
-    fetchChararcter(initialURL);
-  }, []);
 
-  const handleMiEvento = (fetchChararcter) => {
-    console.log("se recibio la informacion del hijo: ", fetchChararcter);
-    let resultados = charactes.filter((elemento) => {
+  const handleMiEvento = (fetchCharacter) => {
+    console.log("se recibio la informacion del hijo: ", fetchCharacter);
+    let results = allCharacters.filter((elemento) => {
       if (
         elemento.name
           .toString()
           .toLowerCase()
-          .includes(fetchChararcter.toLowerCase())
+          .includes(fetchCharacter.toLowerCase())
       ) {
         return elemento;
       }
     });
-    setCharactes(resultados)
+    setFilteredCharacters(results);
   };
+
+  const onPrevious = () => {
+    fetchCharacters(info.prev);
+  };
+  const onNext = () => {
+    fetchCharacters(info.next);
+  };
+
+  useEffect(() => {
+    fetchCharacters(initialURL);
+  }, []);
 
   return (
     <>
@@ -49,7 +54,7 @@ function App() {
 
       <div className="container mb-5">
         <Search onMiEvento={handleMiEvento} />
-        <Characters characters={charactes} />
+        <Characters characters={filteredCharacters} />
         <Pagination
           prev={info.prev}
           next={info.next}
@@ -62,3 +67,4 @@ function App() {
 }
 
 export default App;
+
