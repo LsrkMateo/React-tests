@@ -5,18 +5,18 @@ const Characters = ({ characters = [] }) => {
   
   // Card Styles 
   const estiloCardAlive = {
-    backgroundColor: "rgba(0, 128, 0, 0.5)",
+    backgroundColor: "rgb(135, 255, 124)",
   };
 
   const estiloCardDead = {
-    backgroundColor: "rgba(255, 0, 0, 0.5)",
+    backgroundColor: "rgb(255, 124, 124)",
   };
 
   const estiloCardUnknown = {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgb(129, 129, 129)",
   };
   return (
-    <div className="row">
+    <div className="row contenedor-cartas">
 
       {/* Mapping characters */}
       {characters.map((item, index) => (

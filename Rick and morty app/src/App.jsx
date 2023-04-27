@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Characters from "./components/Characters";
 import Pagination from "./components/Pagination";
+import Search from "./components/Search";
 function App() {
   const [charactes, setCharactes] = useState([]);
   const [info, setInfo] = useState({});
@@ -29,15 +30,10 @@ function App() {
 
   return (
     <>
-      <Navbar titulo="Rick and morty app" />
+      <Navbar titulo="Rick and morty API" />
 
       <div className="container mb-5">
-        <Pagination
-          prev={info.prev}
-          next={info.next}
-          onPrevious={onPrevious}
-          onNext={onNext}
-        />
+        <Search />
         <Characters characters={charactes} />
         <Pagination
           prev={info.prev}
