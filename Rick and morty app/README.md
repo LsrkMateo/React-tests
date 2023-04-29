@@ -28,6 +28,6 @@ Finalmente, para previsualizar el proyecto en tu ordenador debes ejecutar el sig
 ```
 npm run preview
 ```
-Este comando compilará el proyecto y lo servirá en un servidor local en tu ordenador. Para acceder a la previsualización, abre tu navegador y dirígete a http://localhost:3000/.
+Este comando compilará el proyecto y lo servirá en un servidor local en tu ordenador. Para acceder a la previsualización, abre tu navegador y dirígete a http://localhost:4173/.
 
 ¡Listo! Ahora deberías poder previsualizar el proyecto Rick and Morty App en tu ordenador. Si tienes algún problema o pregunta, no dudes en crear un issue en este repositorio.
