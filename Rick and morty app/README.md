@@ -1,5 +1,5 @@
 # Cómo previsualizar el proyecto: Rick and Morty App 
-### Para poder previsualizar el proyecto Rick and Morty App en GitHub, deberás seguir los siguientes pasos:
+## Para poder previsualizar el proyecto Rick and Morty App en GitHub, deberás seguir los siguientes pasos:
 
 ### Paso 1: Instalar Node.js
 Este proyecto utiliza Node.js para su funcionamiento. Si aún no lo tienes instalado, puedes descargarlo e instalarlo desde la página oficial de Node.js.
